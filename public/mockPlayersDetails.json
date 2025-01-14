@@ -252,10 +252,10 @@
     }
   },
   {
-    "id": 15,
-    "name": "Test",
-    "score": "100",
-    "date": "2025-01-14T16:35:27.827Z",
+    "id": 16,
+    "name": "Test2",
+    "score": "12",
+    "date": "2025-01-14T16:37:12.574Z",
     "totalGames": 4,
     "totalWins": 1,
     "totalLosses": 3,
@@ -270,51 +270,129 @@
     }
   },
   {
-    "id": 16,
-    "name": "Test2",
-    "score": "12",
-    "date": "2025-01-14T16:37:12.574Z"
-  },
-  {
     "id": 17,
     "name": "Test 3",
     "score": "12",
-    "date": "2025-01-14T16:39:25.481Z"
+    "date": "2025-01-14T16:39:25.481Z",
+    "totalGames": 4,
+    "totalWins": 1,
+    "totalLosses": 3,
+    "winRate": 25,
+    "totalScore": 100,
+    "averageScore": 25,
+    "highestScore": 50,
+    "lowestScore": 2,
+    "lastGame": {
+      "score": 50,
+      "date": "2024-01-01"
+    }
   },
   {
     "id": 18,
     "name": "Test 4",
     "score": "12",
-    "date": "2025-01-14T16:39:53.887Z"
+    "date": "2025-01-14T16:39:53.887Z",
+    "totalGames": 4,
+    "totalWins": 1,
+    "totalLosses": 3,
+    "winRate": 25,
+    "totalScore": 100,
+    "averageScore": 25,
+    "highestScore": 50,
+    "lowestScore": 2,
+    "lastGame": {
+      "score": 50,
+      "date": "2024-01-01"
+    }
   },
   {
     "id": 19,
     "name": "Test 5",
     "score": "32",
-    "date": "2025-01-14T16:40:26.136Z"
+    "date": "2025-01-14T16:40:26.136Z",
+    "totalGames": 4,
+    "totalWins": 1,
+    "totalLosses": 3,
+    "winRate": 25,
+    "totalScore": 100,
+    "averageScore": 25,
+    "highestScore": 50,
+    "lowestScore": 2,
+    "lastGame": {
+      "score": 50,
+      "date": "2024-01-01"
+    }
   },
   {
     "id": 20,
     "name": "Test 6",
-    "score": 100,
-    "date": "2025-01-14T16:40:38.961Z"
+    "score": "12",
+    "date": "2025-01-14T16:40:38.961Z",
+    "totalGames": 4,
+    "totalWins": 1,
+    "totalLosses": 3,
+    "winRate": 25,
+    "totalScore": 100,
+    "averageScore": 25,
+    "highestScore": 50,
+    "lowestScore": 2,
+    "lastGame": {
+      "score": 50,
+      "date": "2024-01-01"
+    }
   },
   {
     "id": 21,
     "name": "TestInt",
     "score": "23",
-    "date": "2025-01-14T16:55:19.975Z"
+    "date": "2025-01-14T16:55:19.975Z",
+    "totalGames": 4,
+    "totalWins": 1,
+    "totalLosses": 3,
+    "winRate": 25,
+    "totalScore": 100,
+    "averageScore": 25,
+    "highestScore": 50,
+    "lowestScore": 2,
+    "lastGame": {
+      "score": 50,
+      "date": "2024-01-01"
+    }
   },
   {
     "id": 22,
     "name": "Test",
     "score": "1",
-    "date": "2025-01-14T17:17:35.149Z"
+    "date": "2025-01-14T17:17:35.149Z",
+    "totalGames": 4,
+    "totalWins": 1,
+    "totalLosses": 3,
+    "winRate": 25,
+    "totalScore": 100,
+    "averageScore": 25,
+    "highestScore": 50,
+    "lowestScore": 2,
+    "lastGame": {
+      "score": 50,
+      "date": "2024-01-01"
+    }
   },
   {
     "id": 23,
     "name": "Test 2",
     "score": "1",
-    "date": "2025-01-14T17:17:49.511Z"
+    "date": "2025-01-14T17:17:49.511Z",
+    "totalGames": 4,
+    "totalWins": 1,
+    "totalLosses": 3,
+    "winRate": 25,
+    "totalScore": 100,
+    "averageScore": 25,
+    "highestScore": 50,
+    "lowestScore": 2,
+    "lastGame": {
+      "score": 50,
+      "date": "2024-01-01"
+    }
   }
 ]

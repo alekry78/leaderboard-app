@@ -5,12 +5,15 @@ interface AddNewPlayerProps {
     players: PlayerProps[];
     setPlayers: React.Dispatch<React.SetStateAction<PlayerProps[]>>;
 }
+//Component that allows adding new players to the leaderboard
 const AddNewPlayer:React.FC<AddNewPlayerProps> = ({players, setPlayers}) => {
+    //React Hook Form
     const {register
         , handleSubmit
         , reset
         , formState: { errors },
     } = useForm<PlayerProps>();
+    //Function that handles the form submission
     const onSubmit: SubmitHandler<PlayerProps> = (data: PlayerProps) => {
         const newPlayer = {
             id: players.length + 1,
@@ -23,6 +26,7 @@ const AddNewPlayer:React.FC<AddNewPlayerProps> = ({players, setPlayers}) => {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(newPlayer)
         }
+        //Fetch POST request to add new player
         fetch('http://localhost:3001/players', requestOptions)
             .then(response => response.json())
             .then(data => {
@@ -33,6 +37,7 @@ const AddNewPlayer:React.FC<AddNewPlayerProps> = ({players, setPlayers}) => {
             });
     };
     return (
+        //Form to add new player
         <form onSubmit={handleSubmit(onSubmit)}
               className='w-1/2 mx-auto border-2 rounded-xl flex flex-col justify-start items-center p-5'>
             <label className='w-full align-left text-lg my-5'
@@ -48,6 +53,8 @@ const AddNewPlayer:React.FC<AddNewPlayerProps> = ({players, setPlayers}) => {
             <input
                 className='w-full border-2 rounded-lg p-2 text-lg focus:outline-none focus:border-black'
                 type='number' {...register('score', {required: true, max: 100, min: 1})} />
+
+            {/*Error messages*/}
             {errors.name?.type === 'maxLength' && (
                 <p className="text-red-500">Name cannot exceed 20 characters</p>
             )}

@@ -9,7 +9,7 @@ function App() {
         <Routes>
             <Route path={'/leaderboard'} index element={<Leaderboard />}/>
             <Route path="*" element={<Leaderboard />}/>
-            <Route path={'/participant/:id'} element={<PlayerDetails /> }/>
+            <Route path={'/player/:id'} element={<PlayerDetails /> }/>
         </Routes>
     </BrowserRouter>
   )

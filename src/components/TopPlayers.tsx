@@ -4,6 +4,8 @@ interface TopPlayersProps {
     players:PlayerProps[];
 }
 const TopPlayers:React.FC<TopPlayersProps> = ({players}) => {
+    //Return the top 3 players, display them in a widget that sticks to the right side of the screen and is animated on hover to reveal the list
+    //Before hover only Top Scores is visible
     return (
         <div className="group flex flex-row fixed top-1/4 right-0 translate-x-80 border border-gray-300 hover:translate-x-0  transform
         transition-transform

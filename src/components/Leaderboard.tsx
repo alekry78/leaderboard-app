@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import Player from "./Player.tsx";
 import AddNewPlayer from "./AddNewPlayer.tsx";
-import PlayerWithDate from "./PlayerWithDate.tsx";
 import TopPlayers from "./TopPlayers.tsx";
 
+// Define the PlayerProps interface
 export interface PlayerProps {
     id: number;
     name: string;
@@ -12,17 +12,23 @@ export interface PlayerProps {
 }
 
 const Leaderboard: React.FC = () => {
+    //State to hold the players
     const [players, setPlayers] = useState<PlayerProps[]>([]);
+    //State to hold the sort order
     const [sort, setSort] = useState<string>('');
+    //State to hold the name of the player to search
     const [name, setName] = useState<string>('');
+    //State to hold the players sorted by name
     const [sortedByName, setSortedByName] = useState<PlayerProps[]>([]);
     useEffect(() => {
+        //Fetch the players from the server
         fetch('http://localhost:3001/players')
             .then(response => response.json())
             .then(data => {
                 setPlayers(data)
             });
     }, []);
+    //Function to handle the sort order
     const handleHowToSort = () => {
         switch (sort) {
             case '':
@@ -35,6 +41,7 @@ const Leaderboard: React.FC = () => {
                 setSort('descending');
         }
     }
+    //Function to sort the players by score
     const handleSort = (a: PlayerProps, b: PlayerProps) => {
         if (sort === 'descending') {
             return b.score - a.score;
@@ -43,12 +50,15 @@ const Leaderboard: React.FC = () => {
         }
         return 0;
     }
+    //Function to sort the players by date
     const handleSortByDate = (a: PlayerProps, b: PlayerProps) => {
         return new Date(b.date).getTime() - new Date(a.date).getTime();
     }
+    //Function to handle the search by name
     const handleSearchByName = (e: React.ChangeEvent<HTMLInputElement>) => {
         setName(e.target.value);
     }
+    //Function to filter the players by name
     useEffect(() => {
         if(name !== ''){
             //With includes
@@ -79,14 +89,15 @@ const Leaderboard: React.FC = () => {
                             <h3 className='w-1/3'>Player</h3>
                             <h3 className='w-1/3'>Score</h3>
                         </header>
+                        {/*If the name is empty, sort by score, otherwise sort by name*/}
                         {
                             name === '' ?
                                 players.sort(handleSort).map((player, index) => (
-                                    <Player player={player} index={index} setPlayers={setPlayers}/>
+                                    <Player player={player} index={index} setPlayers={setPlayers} key={`${player.name}${player.id}${player.score}${index}`}/>
                                 ))
                                 :
                                 sortedByName.sort(handleSort).map((player, index) => (
-                                    <Player player={player} index={index} setPlayers={setPlayers}/>
+                                    <Player player={player} index={index} setPlayers={setPlayers} key={`${player.name}${player.id}${player.score}${index}`}/>
                                 ))
                         }
                     </div>
@@ -96,6 +107,7 @@ const Leaderboard: React.FC = () => {
                 </button>
                 <section className="container">
                     <h1 className='text-black text-3xl font-sans font-bold my-5'>Add new player</h1>
+                    {/* Add new player form */}
                     <AddNewPlayer players={players} setPlayers={setPlayers}/>
                 </section>
                 <section className='container mx-auto py-5'>
@@ -106,13 +118,15 @@ const Leaderboard: React.FC = () => {
                             <h3 className='w-1/3'>Score</h3>
                             <h3 className='w-1/3'>Date</h3>
                         </header>
+                        {/*Sort the players by date to showcase the recent scores*/}
                         {players.sort(handleSortByDate).map((player, index) => (
-                            <PlayerWithDate player={player} index={index} setPlayers={setPlayers}/>
+                            <Player recent player={player} index={index} setPlayers={setPlayers} key={`${player.name}${player.id}${player.score}${index}`}/>
                         ))}
                     </div>
                 </section>
 
             </main>
+            {/* Widget to show the top 3 player */}
             <TopPlayers players={players}/>
         </>
     );
