@@ -49,7 +49,37 @@ app.post('/players', (req, res) => {
         });
     });
 });
+app.patch('/players/:id', (req, res) => {
+    const { id } = req.params;
+    const updatedFields = req.body;
 
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading file:', err);
+            return res.status(500).json({ error: 'Error reading file' });
+        }
+
+        let players = JSON.parse(data);
+        const index = players.findIndex((player) => player.id === Number(id));
+
+        if (index === -1) {
+            return res.status(404).json({ error: 'Player not found' });
+        }
+
+        players[index] = {
+            ...players[index],
+            ...updatedFields
+        };
+
+        fs.writeFile(filePath, JSON.stringify(players, null, 2), (err) => {
+            if (err) {
+                console.error('Error writing file:', err);
+                return res.status(500).json({ error: 'Error writing file' });
+            }
+            res.json(players[index]);
+        });
+    });
+});
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });

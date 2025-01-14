@@ -64,5 +64,23 @@
     "name": "Aleksander",
     "score": "100",
     "date": "2025-01-14T14:49:18.634Z"
+  },
+  {
+    "id": 12,
+    "name": "Aleksander",
+    "score": "12",
+    "date": "2025-01-14T14:52:51.326Z"
+  },
+  {
+    "id": 13,
+    "name": "Aleksander",
+    "score": "10",
+    "date": "2025-01-14T14:57:12.272Z"
+  },
+  {
+    "id": 14,
+    "name": "Bartek",
+    "score": "13",
+    "date": "2025-01-14T15:02:40.296Z"
   }
 ]
