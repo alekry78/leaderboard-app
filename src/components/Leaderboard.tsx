@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Player from "./Player.tsx";
 import AddNewPlayer from "./AddNewPlayer.tsx";
+import PlayerWithDate from "./PlayerWithDate.tsx";
 
 export interface PlayerProps {
     id: number;
@@ -41,6 +42,9 @@ const Leaderboard: React.FC = () => {
         }
         return 0;
     }
+    const handleSortByDate = (a: PlayerProps, b: PlayerProps) => {
+        return new Date(b.date).getTime() - new Date(a.date).getTime();
+    }
     return (
         <main className='w-full flex flex-col justify-start items-center'>
             <section className='container mx-auto py-6'>
@@ -52,7 +56,7 @@ const Leaderboard: React.FC = () => {
                         <h3 className='w-1/3'>Score</h3>
                     </header>
                     {players.sort(handleSort).map((player, index) => (
-                        <Player player={player} index={index}/>
+                        <Player player={player} index={index} setPlayers={setPlayers}/>
                     ))}
                 </div>
             </section>
@@ -62,6 +66,19 @@ const Leaderboard: React.FC = () => {
             <section className="container">
                 <h1 className='text-black text-3xl font-sans font-bold my-5'>Add new player</h1>
                 <AddNewPlayer players={players} setPlayers={setPlayers}/>
+            </section>
+            <section className='container mx-auto py-5'>
+                <h1 className='text-black text-3xl font-sans font-bold my-5'>Recent high scores</h1>
+                <div className='border-2 rounded-lg flex-col justify-start w-full'>
+                    <header className='w-full flex justify-between items-center p-4 border-b-2 '>
+                        <h3 className='w-1/3'>Player</h3>
+                        <h3 className='w-1/3'>Score</h3>
+                        <h3 className='w-1/3'>Date</h3>
+                    </header>
+                    {players.sort(handleSortByDate).map((player, index) => (
+                        <PlayerWithDate player={player} index={index} setPlayers={setPlayers}/>
+                    ))}
+                </div>
             </section>
         </main>
     );

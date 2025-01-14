@@ -2,13 +2,13 @@
   {
     "id": 1,
     "name": "Alice",
-    "score": 89,
+    "score": 2,
     "date": "2024-01-01"
   },
   {
     "id": 2,
     "name": "Bob",
-    "score": 94,
+    "score": 100,
     "date": "2024-01-02"
   },
   {
@@ -20,7 +20,7 @@
   {
     "id": 4,
     "name": "Stephen",
-    "score": 74,
+    "score": 3,
     "date": "2024-01-04"
   },
   {
@@ -50,19 +50,19 @@
   {
     "id": 9,
     "name": "Aqua",
-    "score": 99,
+    "score": 100,
     "date": "2024-01-09"
   },
   {
     "id": 10,
     "name": "Ruby",
-    "score": 100,
+    "score": 92,
     "date": "2024-01-10"
   },
   {
     "id": 11,
     "name": "Aleksander",
-    "score": "100",
+    "score": 92,
     "date": "2025-01-14T14:49:18.634Z"
   },
   {
@@ -74,7 +74,7 @@
   {
     "id": 13,
     "name": "Aleksander",
-    "score": "10",
+    "score": 19,
     "date": "2025-01-14T14:57:12.272Z"
   },
   {

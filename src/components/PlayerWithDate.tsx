@@ -6,7 +6,7 @@ interface PlayerComponentProps {
     setPlayers: React.Dispatch<React.SetStateAction<PlayerProps[]>>;
 }
 
-const Player:React.FC<PlayerComponentProps> = ({player, index, setPlayers}) => {
+const PlayerWithDate:React.FC<PlayerComponentProps> = ({player, index, setPlayers}) => {
     const [changeScore, setChangeScore] = useState<boolean>(false);
     const [playerScore, setPlayerScore] = useState<number>(player.score);
     useEffect(() => {
@@ -48,7 +48,6 @@ const Player:React.FC<PlayerComponentProps> = ({player, index, setPlayers}) => {
     return (
         <div className='w-full flex justify-between items-center p-4 border-b-2 last:border-0'
              key={`${index}${player.id}`}>
-            <span className='w-1/3'>{player.id}</span>
             <span className='w-1/3'>{player.name}</span>
             {
                 changeScore ?
@@ -64,9 +63,9 @@ const Player:React.FC<PlayerComponentProps> = ({player, index, setPlayers}) => {
                     <span className='w-1/3'
                           onClick={() => setChangeScore(prevState => !prevState)}>{player.score}</span>
             }
-
+            <span className='w-1/3'>{new Date(player.date).toLocaleDateString()}</span>
         </div>
     );
 }
 
-export default Player;
+export default PlayerWithDate;

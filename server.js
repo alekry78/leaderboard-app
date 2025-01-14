@@ -76,7 +76,7 @@ app.patch('/players/:id', (req, res) => {
                 console.error('Error writing file:', err);
                 return res.status(500).json({ error: 'Error writing file' });
             }
-            res.json(players[index]);
+            res.json(players);
         });
     });
 });
